@@ -1,0 +1,289 @@
+.btn-rounded {
+    -webkit-border-radius: 10em;
+    border-radius: 10em;
+}
+
+.btn-ins {
+    background-color: #2e5e86 !important;
+    color: #fff;
+}
+
+.hero-widget {
+        padding-top: 200px;
+        background-size: cover;
+        background-position: center center;
+        background-image: url(../img/homepage-hero.jpg);
+        height: 850px;
+        padding-left: 20px;
+    }
+
+    .hero-widget--headline {
+        max-width: 460px;
+    }
+    .hero-widget--head {
+        font-size: 3.66667rem;
+        letter-spacing: -.11111rem;
+        line-height: 3.66667rem;
+        margin-bottom: 1.77778rem;
+        font-weight: bold;
+    }
+
+    .hero-widget--description {
+        max-width: 350px;
+    }
+
+    @media screen and (max-width: 770px) {
+        .hero-widget {
+            padding-top: 100px;
+            background-size: cover;
+            background-position: center bottom;
+            height: 850px;
+            background-image: url(../img/homepage-hero.jpg);
+        }
+        .hero-widget-flat {
+            height: 500px;
+            background-position: center 50%;
+        }
+        .hero-widget--headline,
+        .hero-widget--description {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 30px;
+            margin: 0 auto;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .hero-widget {
+            height: 600px;
+            background-image: url(../img/homepage-hero.jpg);
+        }
+        .hero-widget-flat {
+            height: 500px;
+            background-position: center 80%;
+        }
+    }
+
+     .step {
+        display: none;
+    }
+    .step.active {
+        display: block;
+    }
+
+    ul.steps {
+        list-style: none;
+        display: inline-block;
+        padding: 0;
+        margin: 20px 0 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    ul.steps li {
+        display: block;
+        text-align: center;
+        float: left;
+        width: 33%;
+    }
+    ul.steps li span {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #333;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        border-radius: 50%;
+        background: #fff;
+        color: #333;
+        font: 200 18px/48px "proxima-nova", sans-serif;
+        cursor: pointer;
+    }
+    ul.steps li.active span {
+        height: 80px;
+        width: 80px;
+        background: #30d992;
+        color: #fff;
+        border-color: #fff;
+        font: 400 26px/78px "proxima-nova", sans-serif;
+        position: relative;
+        top: -15px;
+        cursor: default;
+    }
+
+
+    html, body
+            {
+                padding: 0;
+                margin: 0;
+            }
+            body,
+            .dial
+            {
+                background-color: #f7f7f7   ;
+                /*overflow: hidden;*/
+            }
+
+            .gauge
+            {
+                position: relative;
+                width: 120px;
+                height: 120px;
+                /*top: 85%;*/
+                left: -10%;
+                /*margin-left: -250px;*/
+                border-radius: 100%;
+                transform-origin: 50% 50%;
+                -webkit-transform-origin: 50% 50%;
+                -ms-transform-origin: 50% 50%;
+                -webkit-transform: rotate(0deg);
+                margin-top: 40%
+
+            }
+
+            .meter
+            {
+                margin: 0;
+                padding: 0;
+            }
+
+            .meter > li
+            {
+                width: 100px;
+                height: 100px;
+                list-style-type: none;
+                position: absolute;
+                border-top-left-radius: 250px;
+                border-top-right-radius: 0px;
+                transform-origin:  100% 100%;;
+                -webkit-transform-origin:  100% 100%;;
+                -ms-transform-origin:  100% 100%;;
+                transition-property: -webkit-transform;
+                pointer-events: none;
+            }
+
+            .meter .low
+            {
+                transform: rotate(0deg); /* W3C */
+                -webkit-transform: rotate(0deg); /* Safari & Chrome */
+                -moz-transform: rotate(0deg); /* Firefox */
+                -ms-transform: rotate(0deg); /* Internet Explorer */
+                -o-transform: rotate(0deg); /* Opera */
+                z-index: 8;
+                background-color: #FA0E1C;
+
+            }
+
+            .meter .normal
+            {
+                transform: rotate(47deg); /* W3C */
+                -webkit-transform: rotate(47deg); /* Safari & Chrome */
+                -moz-transform: rotate(47deg); /* Firefox */
+                -ms-transform: rotate(47deg); /* Internet Explorer */
+                -o-transform: rotate(47deg); /* Opera */
+                z-index: 7;
+                background-color: #FEE62A;
+            }
+
+            .meter .high
+            {
+                transform: rotate(90deg); /* W3C */
+                -webkit-transform: rotate(90deg); /* Safari & Chrome */
+                -moz-transform: rotate(90deg); /* Firefox */
+                -ms-transform: rotate(90deg); /* Internet Explorer */
+                -o-transform: rotate(90deg); /* Opera */
+                z-index: 6;
+                background-color: #09B84F;
+            }
+
+            
+            .dial,
+            .dial .inner
+            {
+                width: 180px;
+                height: 200px;
+                position: relative;
+                top: 10px;
+                left: 0px;
+                border-radius: 100%;
+                border-color: purple;
+                z-index: 10;
+                transition-property: -webkit-transform;
+                transition-duration: 1s;
+                transition-timing-function: ease-in-out;
+                transform: rotate(0deg); /* W3C */
+                -webkit-transform: rotate(0deg); /* Safari & Chrome */
+                -moz-transform: rotate(0deg); /* Firefox */
+                -ms-transform: rotate(0deg); /* Internet Explorer */
+                -o-transform: rotate(0deg); /* Opera */
+            }
+
+            .dial .arrow
+            {
+                width: 0; 
+                height: 0; 
+                position: absolute;
+                top: 25%;
+                left: 10%;
+                border-left: 3px solid transparent;
+                border-right: 3px solid transparent;
+                border-bottom: 15px solid black;
+                -webkit-transform: rotate(-120deg); /* Safari & Chrome */
+                -moz-transform: rotate(120deg); /* Firefox */
+                -ms-transform: rotate(120deg); /* Internet Explorer */
+                -o-transform: rotate(120deg); /* Opera */
+
+            }
+
+            .gauge .value
+            {
+                font-family: 'Josefin Slab', serif;
+                font-size: 30px;
+                color: black;
+                position: absolute;
+                top: 52%;
+                left: 55%;
+                z-index: 11;
+            }
+
+            .gauge .valCount
+            {
+                font-family: 'Josefin Slab', serif;
+                font-size: 30px;
+                color: black;
+                position: absolute;
+                top: 83%;
+                left: 55%;
+                z-index: 11;
+            }
+            .evalType
+            {
+                font-family: 'Josefin Slab', serif;
+                font-size: 30px;
+                color: black;
+                font-weight: bold;
+                position: relative;
+                top: -40%;
+                left: 20%;
+                z-index: 11;
+            }
+             .evaluation
+            {
+                font-family: 'Josefin Slab', serif;
+                font-size: 20px;
+                color: black;
+                font-weight: bold;
+                position: relative;
+                top: -50%;
+                left: 20%;
+                z-index: 11;
+            }
+            .POOR{
+                color: red;
+            }
+            .FAIR{
+                color: yellow;
+            }
+            .GREAT{
+                color: green;
+            }

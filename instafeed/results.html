@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Patient Rise</title>
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar">
+
+    <a class="navbar-brand" href="#"><strong>Patiient Pop</strong></a>
+
+    <div class="row justify-content-center">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="row justify-content-center" id="loader" style="position: relative; top: 80px">
+  <div class="spinner-border text-info" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+  <h3>Analysing your profile</h3>
+
+</div>
+
+  <div class="container" style="display: none;" id="container">
+  
+
+   <div class="row justify-content-center">
+     <div class="col-md-4" align="center">
+       <div class="gauge" id="followersGauge">
+          <ul class="meter">
+            <li class="low"></li>
+            <li class="normal"></li>
+            <li class="high"></li>
+          </ul>
+
+          <div class="dial" id="followersDial">
+              <div class="inner">
+                <div class="arrow">
+                </div>
+              </div>      
+          </div>
+
+          <div class="value" id="followersVal">
+            0%
+          </div>
+          <div class="valCount" id="followersVC">
+          </div>
+  
+          <h3 class="evalType">Followers</h3>
+          <h4 class="evaluation" id="followersEvalState"><h4>
+
+        </div>
+     </div>
+
+    <div class="col-md-4" align="center">
+       <div class="gauge" id="followingGauge">
+          <ul class="meter">
+            <li class="low"></li>
+            <li class="normal"></li>
+            <li class="high"></li>
+          </ul>
+
+          <div class="dial" id="followingDial">
+              <div class="inner">
+                <div class="arrow">
+                </div>
+              </div>      
+          </div>
+
+          <div class="value" id="followingVal">
+            0%
+          </div>
+          <div class="valCount" id="followingVC">
+          </div>
+          
+          <h3 class="evalType">Following</h3>
+          <h4 class="evaluation" id="followingEvalState"><h4>
+
+
+        </div>
+     </div>
+
+     <div class="col-md-4" align="center">
+       <div class="gauge" id="postsGauge">
+          <ul class="meter">
+            <li class="low"></li>
+            <li class="normal"></li>
+            <li class="high"></li>
+          </ul>
+
+          <div class="dial" id="postsDial">
+              <div class="inner">
+                <div class="arrow">
+                </div>
+              </div>      
+          </div>
+
+          <div class="value" id="postsVal">
+            0%
+          </div>
+          <div class="valCount" id="postsVC">
+          </div>
+          
+          <h3 class="evalType">Posts</h3>
+          <h4 class="evaluation" id="postsEvalState"><h4>
+
+        </div>
+     </div>
+   </div>
+   <div class="row justify-content-center" style="position: relative; margin-top: 150px">
+     <div class="col">
+       <div class="row justify-content-center">
+         <h4 style="color: green; font-weight: bold"> YOUR INSTAGRAM PRESENCE EVALUATION</h4>
+       </div>
+       <div class="row" id="poorInsta">
+         <h4 style="font-weight: bold;">Patients are having a hard time seeing you on instagram<h4>
+          <ul>
+            <li>There are not enough consistency in your posts</li>
+            <li>There are not enough impact on the reach your potential practice growth can reach</li>
+            <li>Many posts are lacking professional connection to the potential audience</li>
+            <li>This impacts your instagram native presence ranking</li>
+          </ul>
+       </div>
+       <div class="row" id="greatInsta">
+         <h4 style="font-weight: bold;">Patients are having a easy time seeing you on instagram<h4>
+          <ul>
+            <li>There is consistency in your posts</li>
+            <li>There are enough impact on the reach your potential practice growth can reach</li>
+            <li>Many posts are do have professional connection to the potential audience</li>
+            <li>This impacts your instagram native presence ranking</li>
+          </ul>
+       </div>
+     </div>
+   </div>
+
+ </div>
+
+  <div class="row justify-content-center" style="position: relative; margin-top: 80px; display: none;" id="error">
+    <div class="col-md-6">
+      <div class="alert alert-danger">
+      <strong>Error!</strong> Bad instagram Username
+    </div>
+    <a type="button" class="btn btn-warning" href="/instafeed/">Go Back</a></div>
+  </div>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js"></script>
+
+ <script type="text/javascript">
+
+
+
+  var followersDial = $("#followersDial .inner");
+  var followersVal = $("#followersGauge .value");
+
+  var followingDial = $("#followingDial .inner");
+  var followingVal = $("#followingGauge .value");
+
+  var postsDial = $("#postsDial .inner");
+  var postsVal = $("#postsGauge .value");
+
+  var followersCondition , followingCondition, postsCondition = "";
+
+    function rotateDials(followers, following, posts)
+    {
+      var degFollowers, degFollowing, degPosts = 0;
+      
+      if(followers < 50){
+        degFollowers = followers*90/50;
+        followersCondition = "POOR";
+      }
+      else if(followers < 151){
+          degFollowers = (((145-90)/(151-50))*(followers - 50)) + 90;
+          followersCondition = "FAIR";
+
+      }
+      else if (followers < 300){
+         degFollowers = (((180 - 145)/(300 - 50))*(followers - 150)) + 145;
+          followersCondition = "GREAT";
+
+      }
+      else{
+        degFollowers = 180;
+        followersCondition = "GREAT";
+      }
+
+
+      var percentageFollowers = Math.round(degFollowers*100/180);
+      followersVal.html(percentageFollowers + "%");
+
+      if (degFollowers > 50) {
+          degFollowers = degFollowers - 50;
+      }
+      else{
+        degFollowers = degFollowers - degFollowers/50
+      }
+
+      followersDial.css({'transform': 'rotate('+degFollowers+'deg)'});
+      followersDial.css({'-ms-transform': 'rotate('+degFollowers+'deg)'});
+      followersDial.css({'-moz-transform': 'rotate('+degFollowers+'deg)'});
+      followersDial.css({'-o-transform': 'rotate('+degFollowers+'deg)'}); 
+      followersDial.css({'-webkit-transform': 'rotate('+degFollowers+'deg)'});
+
+
+       if(following < 50){
+        degFollowing = following*90/50;
+        followingCondition = "POOR";
+      }
+      else if(following < 151){
+          degFollowing = (((145-90)/(151-50))*(following - 50)) + 90;
+          followingCondition = "FAIR";
+      }
+      else if (following < 300){
+         degFollowing = (((180 - 145)/(300 - 50))*(following - 150)) + 145;
+         followingCondition = "GREAT";
+      }
+      else{
+        degFollowing = 180;
+        followingCondition = "GREAT";
+
+      }
+
+
+      var percentageFollowing = Math.round(degFollowing*100/180);
+      followingVal.html(percentageFollowing + "%");
+
+
+      if (degFollowing > 50) {
+          degFollowing = degFollowing - 50;
+      }
+      else{
+        degFollowing = degFollowing - degFollowing/50
+      }
+
+
+      followingDial.css({'transform': 'rotate('+degFollowing+'deg)'});
+      followingDial.css({'-ms-transform': 'rotate('+degFollowing+'deg)'});
+      followingDial.css({'-moz-transform': 'rotate('+degFollowing+'deg)'});
+      followingDial.css({'-o-transform': 'rotate('+degFollowing+'deg)'}); 
+      followingDial.css({'-webkit-transform': 'rotate('+degFollowing+'deg)'});
+
+       if(posts < 50){
+        degPosts = posts*90/50;
+        postsCondition = "POOR";
+      }
+      else if(posts < 151){
+          degPosts = (((145-90)/(151-50))*(posts - 50)) + 90;
+          postsCondition = "FAIR";
+      }
+      else if (posts < 300){
+         degPosts = (((180 - 145)/(300 - 50))*(posts - 150)) + 145;
+         postsCondition = "GREAT";
+      }
+      else{
+        degPosts = 180;
+        postsCondition = "GREAT";
+      }
+
+
+      var percentagePosts = Math.round(degPosts*100/180);
+      postsVal.html(percentagePosts + "%");
+
+      if (degPosts > 50) {
+              degPosts = degPosts - 50;
+      }
+      else{
+        degPosts = degPosts - degPosts/50
+      }
+
+
+      postsDial.css({'transform': 'rotate('+degPosts+'deg)'});
+      postsDial.css({'-ms-transform': 'rotate('+degPosts+'deg)'});
+      postsDial.css({'-moz-transform': 'rotate('+degPosts+'deg)'});
+      postsDial.css({'-o-transform': 'rotate('+degPosts+'deg)'}); 
+      postsDial.css({'-webkit-transform': 'rotate('+degPosts+'deg)'});
+
+
+      jQuery('#followersVC').append(followers);
+      jQuery('#followingVC').append(following);
+      jQuery('#postsVC').append(posts);
+
+      jQuery('#followersEvalState').append(followersCondition);
+      jQuery('#followingEvalState').append(followingCondition);
+      jQuery('#postsEvalState').append(postsCondition);
+
+      jQuery('#followersEvalState').addClass(followersCondition);
+      jQuery('#followingEvalState').addClass(followingCondition);
+      jQuery('#postsEvalState').addClass(postsCondition);
+
+      if(followersCondition === "GREAT" && followingCondition=== "GREAT" && postsCondition === "GREAT" ){
+          jQuery('#greatInsta').show();
+          jQuery('#poorInsta').hide();
+      }
+      else{
+          jQuery('#greatInsta').hide();
+          jQuery('#poorInsta').show();
+      }
+    }
+
+    function showError(instagramName){
+
+        document.getElementById("loader").style.display = 'none';
+        document.getElementById("error").style.display = '';
+
+        jQuery.ajax({
+        type: "POST",
+        url: 'send_mail.php',
+        dataType: 'json',
+        data: {instaname: instagramName},
+
+        success: function (data, textstatus) {
+
+              console.log(data);
+
+                },
+        error: function(error){
+          console.log(error);          
+
+        }
+      });
+    }
+
+    function showResults(data){
+
+        document.getElementById("loader").style.display = 'none';
+        document.getElementById("container").style.display = 'block';
+
+        setTimeout(function(){
+
+           rotateDials(data.follower_count,data.following_count, data.media_count); },
+          100);
+    }
+
+    // setInterval(rotateDial, 2000);
+
+// var token = 'access_token=6536910552.794e4bf.f5b043da033647e387af2836d78bf4b8';
+
+jQuery(document).ready(function(e) {
+
+   var url =   $(location).attr("href")
+   console.log(url);
+   var instagramName = url.split('#')[1]
+    console.log(instagramName);
+
+  // var $url = 'https://api.instagram.com/v1/users/6536910552/?access_token=6536910552.794e4bf.f5b043da033647e387af2836d78bf4b8';
+
+  jQuery.ajax({
+        type: "POST",
+        url: 'instagram.php',
+        dataType: 'json',
+        data: {instaname: instagramName},
+
+        success: function (data, textstatus) {
+
+              console.log(data);
+
+              if(data.status == "ok"){
+                      showResults(data);
+                    }
+              else if(data.status == "error"){
+                  console.log(data.message);
+                  showError(instagramName);
+
+              }
+              else if(data.success === false){
+                      console.log(msg);
+                  showError(instagramName);              
+              }                      
+
+                },
+        error: function(error){
+          console.log(error);
+          showError(instagramName);
+
+
+        }
+      });
+
+});
+
+
+ </script>
+
+
+</body>
+
+</html>
